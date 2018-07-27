@@ -1,0 +1,46 @@
+<% include partials/head %>
+<% include partials/header %>
+
+<body>
+    <div class="container">
+        <br><br>
+        <div class="row justify-content-center">
+            <div class="col-sm-8">
+                <form method="post">
+                    <div class="form-group">
+                        <label>Tapez le nom de l'article à rechercher :</label>
+                        <input type="text" class="form-control" name="article" id="article">
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="rechercher" id="rechercher">Rechercher</button>
+                </form>
+                <br>
+                <% if (typeof article != "undefined") { %>
+                <label>Vous avez recherché : <%- article %></label>
+                <%}%>
+                <!-- Alerte JS -->
+
+                <div class="row justify-content-center" id="champManquant" style="display: none">
+                    <div class="col-sm-12">
+                        <div class="alert alert-danger" role="alert">
+                            Veuillez renseigner le champ article !
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alerte serveur -->
+                <% if (typeof erreur != "undefined") { %>
+                <div class="row justify-content-center" id="erreurServeur">
+                    <div class="col-sm-12">
+                        <div class="alert alert-danger" role="alert">
+                            <%= erreur %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="/js/challenge.js"></script>
+</body>
+
+<% include partials/footer %>

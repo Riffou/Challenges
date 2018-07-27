@@ -1,0 +1,30 @@
+{
+  "name": "challenge1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/bin/www",
+  "scripts": {
+    "start": "node ./src/bin/www preprod",
+    "prod": "node ./src/bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5",
+    "ejs": "^2.5.7",
+    "pg-promise": "^8.4.4",
+    "bcrypt": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.0.1",
+    "nyc": "^11.4.1"
+  }
+}

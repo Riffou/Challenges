@@ -1,0 +1,71 @@
+<% include partials/head %>
+<% include partials/header %>
+
+<body>
+    <div class="container">
+        <br><br>
+        <div class="row justify-content-center">
+            <div class="form-group col-sm-8">
+                <p>Laissez un commentaire à l'administrateur de la plateforme.</p>
+            </div>
+        </div>
+        <form method="post">
+            <div class="row justify-content-center">
+                <div class="form-group col-sm-8">
+                    <label for="titreInput">Titre</label>
+                    <input type="text" class="form-control" name="titreInput" id="titreInput" placeholder="Titre">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-sm-8">
+                    <label for="messageInput">Message</label>
+                    <textarea class="form-control" name="messageInput" id="messageInput" rows="3" placeholder="Message"></textarea>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <button class="btn btn-info" type="submit" id="envoyer">Envoyer</button>
+            </div>
+        </form>
+        <!-- Alerte JS -->
+        <div class="row justify-content-center" id="champManquant" style="display: none">
+            <div class="col-sm-8">
+                <br>
+                <div class="alert alert-danger" role="alert">
+                    Veuillez renseigner tous les champs !
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerte serveur -->
+        <% if (typeof erreur != "undefined") {%>
+        <div class="row justify-content-center" id="erreurServeur">
+            <div class="col-sm-8">
+                <br>
+                <div class="alert alert-danger" role="alert">
+                    <%= erreur %>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <br><br>
+        <% if (typeof commentaires != "undefined") {%>
+        <div class="row justify-content-center">
+            <div class="form-group col-sm-8">
+                <% if (commentaires.length > 0) {%>
+                    <p>Commentaires précédents :</p>
+                    <% for (var i = 0; i < commentaires.length; i++) {%>
+                        <div class="card">
+                            <div class="card-body">
+                                <%- commentaires[i].titre %> : <br>
+                                <%- commentaires[i].message %>
+                            </div>
+                        </div><br>
+                    <%}
+                }%>
+            </div>
+        </div>
+        <%}%>
+    </div>
+    <script src="/js/challenge.js"></script>
+</body>
+<% include partials/footer %>
